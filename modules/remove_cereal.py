@@ -2,8 +2,8 @@ from modules.get_db_connection import get_db_connection
 from flask import jsonify, make_response
 
 def remove_cereal(id):
-    conn = get_db_connection()
-    cursor = conn.cursor()
+    conn, cursor = get_db_connection()
+
 
     # Delete the cereal with the given id
     cursor.execute("DELETE FROM cereal WHERE id = ?", (id,))

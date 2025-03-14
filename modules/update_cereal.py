@@ -4,8 +4,8 @@ import logging
 
 def update_cereal(columns, values):
     try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
+        conn, cursor = get_db_connection()
+
 
         # Update the data in the table using parameterized query
         query = f"UPDATE cereal SET {columns} WHERE id = ?"

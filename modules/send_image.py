@@ -6,8 +6,7 @@ import os
 
 def send_image(id):
     try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
+        conn, cursor = get_db_connection()
 
         # Get the image from the database
         cursor.execute(f"SELECT name FROM cereal WHERE id = {id}")
@@ -20,6 +19,8 @@ def send_image(id):
             image = image_file.read()
         response = make_response(image)
         response.headers.set('Content-Type', 'image/jpeg')
+
+        conn.close()
 
         return response
     except Exception as e:

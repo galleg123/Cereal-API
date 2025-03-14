@@ -4,8 +4,8 @@ import logging
 
 def insert_cereal(columns, placeholders, values):
     try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
+        conn, cursor = get_db_connection()
+
 
         # Insert the data into the table using parameterized query
         query = f"INSERT INTO cereal ({columns}) VALUES ({placeholders})"

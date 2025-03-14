@@ -11,8 +11,7 @@ def fetch_cereals(conditions, values):
         query += " WHERE " + " AND ".join(conditions)
 
     # Initiate sql connection.
-    conn = get_db_connection()
-    cursor = conn.cursor()
+    conn, cursor = get_db_connection()
 
     # Try except to prevent api arguments that are not a column in the table.
     try:
