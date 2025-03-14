@@ -1,0 +1,5 @@
+return cursor fra get_db_connection.py
+
+entity framework core
+
+rider
