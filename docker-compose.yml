@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./cereal.db:/app/cereal.db  # Bind mount for persistent database storage
+      - ./src:/app/src             # Bind mount for source code (optional for development)
+    environment:
+      - FLASK_ENV=development      # Example environment variable (for Flask)
+      - DATABASE_URL=sqlite:///cereal.db  # Example database URL (for SQLite)
